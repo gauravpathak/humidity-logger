@@ -36,6 +36,9 @@ SENSE_HAT_INSTALL_STATUS=$(dpkg-query --status "${SENSE_HAT}" | grep Status)
 PYTHON3_PIP_INSTALL_STATUS=$(dpkg-query --status "${PYTHON3_PIP}" | grep Status)
 JQ_INSTALL_STATUS=$(dpkg-query --status jq | grep Status)
 
+apt -y install dnsmasq hostapd python3-dev
+pip3 install pyaccesspoint paho-mqtt
+
 if [[ ! "$JQ_INSTALL_STATUS" == *"install ok installed"* ]]; then
     apt install -y jq
 fi
